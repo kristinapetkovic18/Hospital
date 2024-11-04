@@ -1,0 +1,219 @@
+﻿<UserControl x:Class="HospitalProject.View.DoctorView.Views.NewReferalView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HospitalProject.View.DoctorView.Views"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:converters="clr-namespace:HospitalProject.View.Converter"
+        xmlns:model="clr-namespace:HospitalProject.View.DoctorView.Model"
+        mc:Ignorable="d"
+        Height="600" Width="950"
+        Background="AliceBlue">
+    <UserControl.Resources>
+        <converters:NameConverter x:Key="NameConverter"/>
+        <Style x:Key="LabelStyle" TargetType="Grid">
+            <Style.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="8,15,10,12"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0"
+                Background="#a4a4e8"
+                BorderThickness="0 0 0 5"
+                BorderBrush="#a4a4ef">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Margin="15 0 0 0"
+                   Text="{model:Loc ReferalLabel}"
+                   Foreground="White"
+                   FontSize="24"
+                   Grid.Column="0"/>
+                <Button Grid.Column="2"
+                        Content="{model:Loc SaveButton}"
+                        Command="{Binding SaveCommand}"
+                        Margin="20"
+                        Style="{StaticResource RoundButton}"/>
+                <Button Grid.Column="3"
+                        Content="{model:Loc ReturnButton}"
+                        Command="{Binding ReturnCommand}"
+                        Margin="20"
+                        Style="{StaticResource RoundButton}"/>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Column="0"
+                      Margin="25"
+                      Header="{model:Loc NewReferalLabel}"
+                      FontSize="20"
+                      Foreground="Black">
+                <Grid Name ="InputForm" Style="{StaticResource LabelStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"
+                           Grid.Column="0">
+                        <TextBlock Text="{model:Loc PLabel}" TextWrapping="Wrap"/>
+                    </Label>
+
+                    <TextBox Grid.Row="0"
+                             Grid.Column="1"
+                             IsEnabled="False"
+                             Margin="5,15,5,15"
+                             FontSize="16"
+                             Text="{Binding SelectedPatient, Converter={StaticResource NameConverter}}"/>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Content="{model:Loc SpecializationLabel}"/>
+
+                    <ComboBox Grid.Row="1"
+                              Grid.Column="1"
+                              ItemsSource="{Binding Path = SpecializationComboBox, UpdateSourceTrigger=PropertyChanged}"
+                              IsEnabled="True"
+                              FontSize="16"
+                              Margin="5,15,5,15"
+                              DisplayMemberPath="Name"
+                              SelectedValuePath="Value"
+                              SelectedValue="{Binding SelectedSpecialization, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              />
+
+                    <Label Grid.Row="3"
+                           Grid.Column="0"
+                           Content="{model:Loc SDLabel}"/>
+
+                    <Label Grid.Row="2"
+                           Grid.Column="0">
+                        <TextBlock Text="{model:Loc DLabel}" TextWrapping="Wrap"/>
+                    </Label>
+
+                    <ComboBox Grid.Row="2"
+                              Grid.Column="1"
+                              Margin="5,15,5,15"
+                              FontSize="16"
+                              ItemsSource="{Binding Path = DoctorComboBox,UpdateSourceTrigger=PropertyChanged, Mode = OneWay}"
+                              DisplayMemberPath="Name"
+                              SelectedValue="{Binding SelectedDoctor}"
+                              SelectedValuePath="Value"/>
+
+                    <DatePicker Grid.Row="3"
+                                Grid.Column="1"
+                                SelectedDate="{Binding Path = StartDate, Mode=OneWayToSource}"
+                                Margin="5,15,5,15"
+                                FontSize="16"
+                                DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+
+                    <Label Grid.Row="4"
+                           Grid.Column="0"
+                           Content="{model:Loc EDLabel}"/>
+
+                    <DatePicker Grid.Row="4"
+                                Grid.Column="1"
+                                SelectedDate="{Binding Path = EndDate, Mode=OneWayToSource}"
+                                Margin="5,15,5,15"
+                                FontSize="16"
+                                DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+
+                    <Label Grid.Row="5"
+                           Grid.Column="0"
+                           Content="{model:Loc PriorityLabel}"/>
+
+                    <Grid Grid.Row="5"
+                          Grid.Column="1"
+                          Margin="5,15,5,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <RadioButton GroupName="Search"
+                                     Grid.Row="0"
+                                     Grid.Column="0"
+                                     Content="{model:Loc DoctorHeader}"
+                                     Margin="0,5,20,5"
+                                     VerticalContentAlignment="Center"
+                                     FontSize="16"
+                                     IsChecked="{Binding Path=FlagForValue1, Mode=TwoWay}"/>
+                        <RadioButton GroupName="Search"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     Content="{model:Loc DateHeader}"
+                                     FontSize="15"
+                                     Margin="0,5,20,5"
+                                     VerticalContentAlignment="Center"
+                                     IsChecked="{Binding Path=FlagForValue2, Mode=TwoWay}"/>
+
+                    </Grid>
+
+                    <Grid Grid.Row="6"
+                          Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0"
+                                Content="{model:Loc SendButton}"
+                                Command="{Binding SubmitCommand}"
+                                Style="{StaticResource RoundButton}"/>
+                        <Button Grid.Column="1"
+                                Content="{model:Loc CancelButton}"
+                                Style="{StaticResource RoundButton}"/>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+            <DataGrid Grid.Column="1"
+                      Margin="20,25,20,45"
+                      AutoGenerateColumns="False"
+                      FontSize="18"
+                      ItemsSource="{Binding Path=GeneratedAppointments}"
+                      SelectedItem="{Binding SelectedItem}"
+                      IsReadOnly="True"
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{model:Loc DateHeader}"
+                                        Width="2*"
+                                        Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="{model:Loc DurationHeader}"
+                                        Width="*"
+                                        Binding="{Binding Duration}"/>
+                    <DataGridTextColumn Header="{model:Loc DoctorHeader}"
+                                        Width="2*"
+                                        Binding="{Binding Doctor, Converter = {StaticResource NameConverter}}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

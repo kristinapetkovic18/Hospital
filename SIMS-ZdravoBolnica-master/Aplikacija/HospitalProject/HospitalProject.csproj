@@ -1,0 +1,238 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <AnalysisLevel>5.0</AnalysisLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\General\Account.png" />
+    <None Remove="Resources\Images\General\Logo.png" />
+    <None Remove="Resources\Images\Patient\back_button.png" />
+    <None Remove="Resources\Images\Patient\calendar.png" />
+    <None Remove="Resources\Images\Patient\customer_rating.png" />
+    <None Remove="Resources\Images\Patient\desk.png" />
+    <None Remove="Resources\Images\Patient\doctor.png" />
+    <None Remove="Resources\Images\Patient\drugs.png" />
+    <None Remove="Resources\Images\Patient\hospital.png" />
+    <None Remove="Resources\Images\Patient\medicines.png" />
+    <None Remove="Resources\Images\Patient\office.png" />
+    <None Remove="Resources\Images\Patient\rating.png" />
+    <None Remove="Resources\Images\Patient\shelf.png" />
+    <None Remove="View\DoctorView\Views\Icons\calendarIcon.png" />
+    <None Remove="View\DoctorView\Views\Icons\doctorIcon.png" />
+    <None Remove="View\DoctorView\Views\Icons\doctorIcon2.png" />
+    <None Remove="View\DoctorView\Views\Icons\examination.png" />
+    <None Remove="View\DoctorView\Views\Icons\examination1.png" />
+    <None Remove="View\DoctorView\Views\Icons\hospitalIcon.png" />
+    <None Remove="View\DoctorView\Views\Icons\medicalRecord.png" />
+    <None Remove="View\DoctorView\Views\Icons\patientIcon.png" />
+    <None Remove="View\DoctorView\Views\Icons\treatmentIcon.png" />
+    <None Remove="View\DoctorView\Views\Icons\treatmentIcon2.png" />
+    <None Remove="View\Secretary\SecretaryV\Icons\university.png" />
+    <None Remove="Themes\FreightSanBookSC.otf" />
+    <None Remove="Resources\Images\556668.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="View\Model\RoomView.xaml.cs">
+      <DependentUpon>RoomView.cs.xaml</DependentUpon>
+    </Compile>
+    <Compile Remove="Model\PersonaInfo.cs" />
+    <Compile Remove="Repository\PatientAllergiesRepository.cs" />
+    <Compile Remove="FileHandler\PatientAllergiesFileHandler.cs" />
+    <Compile Remove="Model\PatientAllergies.cs" />
+    <Resource Include="Resources\Images\Patient\back_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\desk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\office.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\shelf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Compile Update="View\WardenForms\Views\WardenEquipementView.xaml.cs">
+      <DependentUpon>WardenEquipementViev.xaml</DependentUpon>
+    </Compile>
+    <Compile Remove="View\Secretary\SecretaryV\DoctorAppointments.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\DoctorProfile.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\DoctorsList.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryVM\DoctorsListVM.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\SecretaryMainView.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryVM\DoctorAppointmentsVM.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\EditAppview.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\NewAppointment.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\PatientProfile.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\SecretaryView.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryVM\SecretaryViewVM.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\PatientAllergies.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryVM\AddPatientVM.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\AddPatient.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\EditProfile.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryVM\PatientAllergiesVM.cs" />
+
+    <Compile Remove="View\Secretary\SecretaryVM\NewAppointmentVM.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\Icons\PdfV.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\PdfV.xaml.cs" />
+    <Compile Remove="View\Secretary\SecretaryVM\PdvVM.cs" />
+    <Compile Remove="View\Secretary\SecretaryVM\PdfViewModel.cs" />
+    <Compile Remove="View\Secretary\SecretaryV\pdfView.xaml.cs" />
+    <None Remove="View\WardenForms\icons\medical-cotton-swab.png" />
+    <Resource Include="View\WardenForms\icons\medical-cotton-swab.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Images\Doctor\" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\General\Account.png" />
+    <Resource Include="Resources\Images\General\Logo.png" />
+    <Resource Include="Resources\Images\Patient\calendar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\customer_rating.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\doctor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\drugs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\hospital.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\medicines.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Patient\rating.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\calendarIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\doctorIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\doctorIcon2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\examination.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\examination1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\hospitalIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\medicalRecord.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\patientIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\treatmentIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\DoctorView\Views\Icons\treatmentIcon2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MaterialDesignThemes" Version="4.6.0-ci191" />
+        <PackageReference Include="Syncfusion.Grid.WPF" Version="20.1.0.52" />
+        <PackageReference Include="Syncfusion.SfGrid.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfBulletGraph.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfMaps.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Grid.Wpf" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfSpreadsheet.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfProgressBar.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.DocIO.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Pdf.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Presentation.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.XlsIO.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Gantt.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfGauge.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Shared.MVVM.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfColorPalette.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfKanban.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfRadialMenu.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfRichTextRibbon.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfHubTile.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfBarcode.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Calculate.Base" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfSpellChecker.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.Edit.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfTreeMap.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfHeatMap.WPF" Version="20.1.0.52" />
+    <PackageReference Include="Syncfusion.SfSmithChart.WPF" Version="20.1.0.52" />
+</ItemGroup>
+
+    <ItemGroup>
+      <Page Remove="View\Secretary\SecretaryV\DoctorAppointments.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\DoctorProfile.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\DoctorsList.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\SecretaryMainView.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\EditAppview.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\NewAppointment.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\PatientProfile.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\SecretaryView.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\PatientAllergies.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\AddPatient.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\EditProfile.xaml" />
+      <Page Remove="Themes\MenuButtonxaml.xaml" />
+      <Page Remove="Themes\SelectedRow.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\Icons\PdfV.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\PdfV.xaml" />
+      <Page Remove="View\Secretary\SecretaryV\pdfView.xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resource.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Localization\strings.en-US.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Localization\strings.sr-LATN-CS.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
+    </ItemGroup>
+</Project>

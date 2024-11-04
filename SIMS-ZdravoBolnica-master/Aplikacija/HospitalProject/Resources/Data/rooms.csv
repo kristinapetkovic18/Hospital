@@ -1,0 +1,16 @@
+1|1|0|stockroom|1-5|4-4
+2|2|1|stationary|1-5|2-10
+3|3|1|operation|1-4|3-4
+4|4|0|meeting|1-5
+5|5|0|meeting|1-6|2-15
+6|6|1|operation|6-10|7-11
+7|7|3|relaxation|1-6|10-100|9-50
+8|8|1|relaxation
+9|9|1|operation|4-10
+10|10|2|examination
+11|11|2|examination
+12|12|2|examination
+13|2|1|meeting
+14|3|1|relaxation
+15|3|1|relaxation
+16|34|1|stationary

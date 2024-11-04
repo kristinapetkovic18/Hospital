@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="HospitalProject.View.DoctorView.Views.PrescriptionHistoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HospitalProject.View.DoctorView.Views"
+             xmlns:converters ="clr-namespace:HospitalProject.View.Converter"
+             xmlns:model="clr-namespace:HospitalProject.View.DoctorView.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="525" d:DesignWidth="750"
+             Background="AliceBlue">
+    <UserControl.Resources>
+        <converters:NameConverter x:Key="NameConverter"/>
+        <converters:DateConverterForAnamnesis x:Key="DateConverter"/>
+        <converters:DateConverterForPrescription x:Key="PrescriptionDateConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid Margin="15"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Style ="{StaticResource grid1}"
+                  HeadersVisibility="Column"
+                  SelectionMode="Single"
+                  ItemsSource="{Binding Prescriptions}"
+                  FontSize="20"
+                  SelectedItem="{Binding SelectedItem}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{model:Loc SDHeader}"
+                                    Width="*"
+                                    Binding="{Binding Appointment.Date, Converter={StaticResource DateConverter}}"/>
+                <DataGridTextColumn Header="{model:Loc EDHeader}"
+                                    Width="*"
+                                    Binding="{Binding EndDate, Converter={StaticResource PrescriptionDateConverter}}"/>
+                <DataGridTextColumn Header="{model:Loc MedicineHeader}"
+                                    Width="*"
+                                    Binding="{Binding Medicine.Name}"/>
+                <DataGridTextColumn Header="{model:Loc WrittenByHeader}"
+                                    Width="*"
+                                    Binding="{Binding Appointment.Doctor, Converter={StaticResource NameConverter}}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>    
+    </Grid>
+</UserControl>

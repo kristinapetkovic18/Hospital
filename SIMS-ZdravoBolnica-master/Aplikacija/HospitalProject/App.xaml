@@ -1,0 +1,186 @@
+<Application x:Class="HospitalProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HospitalProject"
+             xmlns:Model="clr-namespace:HospitalProject.View.Model"
+             xmlns:viewModel="clr-namespace:HospitalProject.View.DoctorView.Model"
+             xmlns:view="clr-namespace:HospitalProject.View.DoctorView.Views"
+             xmlns:wardenForms="clr-namespace:HospitalProject.View.WardenForms"
+             xmlns:patientViewModel="clr-namespace:HospitalProject.View.PatientView.Model"
+             xmlns:patientView="clr-namespace:HospitalProject.View.PatientView.View"
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewModels="clr-namespace:HospitalProject.View.WardenForms.ViewModels"
+             xmlns:views="clr-namespace:HospitalProject.View.WardenForms.Views"
+             xmlns:secretaryVM="clr-namespace:HospitalProject.View.Secretary.SecretaryVM"
+             xmlns:secretaryV="clr-namespace:HospitalProject.View.Secretary.SecretaryV"
+
+
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/probni.xaml"/>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/MedicalCardButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/LoginButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/FormButtonTheme.xaml"/>
+                
+                <ResourceDictionary Source="Themes/MenuSecretary.xaml"/>
+                
+                <ResourceDictionary Source="Themes/SlideButton.xaml"/>
+                
+                <ResourceDictionary Source="Themes/SecretaryButtons.xaml"/> 
+
+
+                <!-- <ResourceDictionary Source="C:\Users\aleksa\Desktop\fax\SIMS\MaterialDesignInXamlToolkit-master\MaterialDesignThemes.Wpf\Themes\MaterialDesignTheme.ComboBox.xaml"/> -->
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:MainDoctorViewModel}">
+                <view:AppointmentsView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModels:MedicineViewModel}">
+                <views:MedicineView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:NewAppointmentViewModel}">
+                <view:NewAppointmentView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:EditAppointmentViewModel}">
+                <view:EditAppointmentview/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AnamnesisViewModel}">
+                <view:ExaminationView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:NewPrescriptionViewModel}">
+                <view:NewPrescriptionView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:MyProfileViewModel}">
+                <view:MyProfileView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:NewReferalViewModel}">
+                <view:NewReferalView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:WardenGradesViewModel}">
+                <views:WardenGradesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:EquipementViewModel}">
+                <views:WardenEquipementView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModels:MedicineReportViewModel}">
+                <views:MedicineReportView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModels:WardenEquipemntRelocationViewModel}">
+                <views:WardenEquipemntRelocationView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:RoomRenovationViewModel}">
+                <views:RoomRenovationView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PatientsViewModel}">
+                <view:PatientsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PatientInformationViewModel}">
+                <view:PatientInformationView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PreviousExaminationsViewModel}">
+                <view:PreviousExaminationsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PrescriptionHistoryViewModel}">
+                <view:PrescriptionHistoryView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:RequestsViewModel}">
+                <view:RequestsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:NewRequestViewModel}">
+                <view:NewRequestView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:InventoryViewModel}">
+                <view:InventoryView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:MedicalCardViewModel}">
+                <view:MedicalCardView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type patientViewModel:RecipesViewModel}">
+                <patientView:RecipesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type patientViewModel:NotesViewModel}">
+                <patientView:NotesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type patientViewModel:MedicalCardViewModel}">
+                <patientView:MedicalCardView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type patientViewModel:MakeNoteViewModel}">
+                <patientView:MakeNoteView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type secretaryVM:SecretaryMainViewVM}">
+                <secretaryV:SecretaryMainV/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type secretaryVM:DataBaseVM}">
+                <secretaryV:DataBaseV/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type secretaryVM:RegisterVM}">
+                <secretaryV:RegisterV/>
+            </DataTemplate>
+
+            
+            <DataTemplate DataType="{x:Type secretaryVM:RequestsVM}">
+                <secretaryV:RequestsV/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type secretaryVM:NewAppointmentsVM}">
+                    <secretaryV:NewAppointmentsV/>
+                </DataTemplate> 
+                
+            
+            <DataTemplate DataType="{x:Type secretaryVM:MeetingVM}">
+                <secretaryV:MeetingV/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type secretaryVM:EmergencyVM}">
+                <secretaryV:EmergencyV/>
+            </DataTemplate>
+            
+                 
+            <DataTemplate DataType="{x:Type secretaryVM:DemoVM}">
+                <secretaryV:DemoV/>
+            </DataTemplate>
+
+            <Style x:Key="WinAll" TargetType="{x:Type Window}">
+                                
+                <Setter Property="FontFamily"
+                        Value="Open Sans" />
+                <Setter Property="FontSize"
+                        Value="14" />
+            </Style>
+            
+                
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,182 @@
+﻿<UserControl x:Class="HospitalProject.View.DoctorView.Views.PatientInformationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HospitalProject.View.DoctorView.Views"
+             xmlns:converters ="clr-namespace:HospitalProject.View.Converter"
+             xmlns:model="clr-namespace:HospitalProject.View.DoctorView.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="525" d:DesignWidth="750"
+             Background="AliceBlue"
+             FontFamily="Verdana">
+    <UserControl.Resources>
+        <converters:DateConverterForAnamnesis x:Key="DateConverter"/>
+        <converters:AllergyConverter x:Key="AllergyConverter"/>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Margin" Value="10, 0, 0, 0" />
+        </Style>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value ="Center"></Setter>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="210"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="{model:Loc PersonalInformationLabel}"
+                  FontSize="20"
+                  Grid.Row="0"
+                  Margin="20"
+                  Foreground ="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Content="{model:Loc NameLabel}"
+                       Style = "{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           Style="{StaticResource TextBlockStyle}"
+                           Text="{Binding MedicalRecord.Patient.FirstName}"/>
+                
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Content="{model:Loc SurnameLabel}"
+                       Style = "{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="1"
+                           Style="{StaticResource TextBlockStyle}"
+                           Text="{Binding MedicalRecord.Patient.LastName}"/>
+                
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       Content="{model:Loc DOBLabel}"
+                       Style = "{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="1"
+                           Style="{StaticResource TextBlockStyle}"
+                           Text="{Binding MedicalRecord.Patient.DateOfBirth, Converter = {StaticResource DateConverter}}"/>
+                
+                <Label Grid.Row="2"
+                       Grid.Column="2"
+                       Content="{model:Loc GenderLabel}"
+                       Style = "{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="3"
+                           Text="{Binding MedicalRecord.Patient.Gender}"
+                           Style="{StaticResource TextBlockStyle}"/>
+
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       Content="{model:Loc JMBGLabel}"
+                       Style = "{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="4"
+                           Grid.Column="1"
+                           Text="{Binding MedicalRecord.Patient.Jmbg}"
+                           Style="{StaticResource TextBlockStyle}"/>
+
+                <Label Grid.Row="0"
+                       Grid.Column="2"
+                       Content="{model:Loc AddressLabel}"
+                       Style = "{StaticResource LabelStyle}"/>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="3"
+                           Text="{Binding MedicalRecord.Patient.Adress}"
+                           Style="{StaticResource TextBlockStyle}"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       Content="{model:Loc PhoneLabel}"
+                       Style = "{StaticResource LabelStyle}"/>
+
+                <TextBlock Grid.Row="1"
+                           Grid.Column="3"
+                           Text="{Binding MedicalRecord.Patient.PhoneNumber}"
+                           Style="{StaticResource TextBlockStyle}"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="{model:Loc MedicalInformationLabel}"
+                  Grid.Row="1"
+                  Margin="20,5,20,20"
+                  FontSize="20"
+                  Foreground ="Black">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Content="{model:Loc BTLabel}"
+                       Style="{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           Text="AB+"
+                           Style="{StaticResource TextBlockStyle}"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Content="{model:Loc RFLabel}"
+                       Style="{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="1"
+                           Text="Diabetes"
+                           Style="{StaticResource TextBlockStyle}"/>
+
+
+                <DockPanel Grid.Row="0"
+                           Grid.Column="2"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"
+                           Margin="40,10,40,10">
+                    <Border Height="30"
+                            BorderBrush="#aaaaff"
+                            BorderThickness="1"
+                            Background="#a3a3e8"
+                            DockPanel.Dock="Top">
+                        <TextBlock Foreground="White"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Text="{model:Loc AllergiesLabel}"
+                                   Margin="5,0,0,0"/>
+                    </Border>
+                    <ListView FontSize="16"
+                              ItemsSource="{Binding MedicalRecord.Allergies, Converter={StaticResource AllergyConverter}}"/>
+                </DockPanel>
+
+
+                
+
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>
